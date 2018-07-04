@@ -5,9 +5,9 @@ import App from '@/App';
 import routes from '@/router';
 import store from '@/store';
 import iView from 'iview';
-import Axios from 'axios';
 import VueRouter from 'vue-router';
-import Utils from '@/assets/Utils';
+import Utils from '@/assets/utils';
+import request from '@/assets/utils/request.js';
 
 import 'iview/dist/styles/iview.css';
 import '@/assets/css/base.less';
@@ -16,7 +16,7 @@ Vue.config.productionTip = false;
 
 Vue.use(iView);
 Vue.use(VueRouter);
-Vue.prototype.Axios = Axios;
+Vue.prototype.$request = request;
 
 const router = new VueRouter({
     routes: routes

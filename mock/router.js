@@ -1,3 +1,3 @@
 module.exports = {
-    '/api/login': '/test'
+    '/api/login?:name': '/test'
 };

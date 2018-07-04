@@ -5,7 +5,7 @@
   "author": "yanan.g055@shulidata.com",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --config build/webpack.dev.conf.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "webpack --progress --config build/webpack.prod.conf.js",
     "mock:server": "node ./mock/server.js"

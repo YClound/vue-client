@@ -1,6 +1,7 @@
 'use strict';
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const vueLoaderConfig = require('./vue-loader.conf.js');
 
 // 获取绝对路径
 function resolve(dir) {
@@ -37,7 +38,8 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options: vueLoaderConfig
             },
             {
                 test: /\.css$/,
@@ -49,7 +51,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
-                    use: ['css-loader','less-loader'],
+                    use: ['css-loader', 'less-loader'],
                     fallback: 'vue-style-loader'
                 })
             },

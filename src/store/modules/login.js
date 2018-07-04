@@ -1,4 +1,4 @@
-import {setStore, getStore} from '@/assets/Utils/store.js';
+import {setStore, getStore} from '@/assets/utils/store.js';
 
 export default {
     state: {
