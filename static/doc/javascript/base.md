@@ -44,3 +44,64 @@ a.d = 3;
 console.log(a.d, a.b)
 => 3,3
 ````
+
+## iframe框架
+* 作用：因为同域，父页面可以对子页面进行改写,反之亦然。跨域，父页面没有权限改动子页面,但可以实现页面的跳转
+
+````javascript
+// 获取iframe里的内容
+const iframe = document.getElementById('iframe');
+const iwindow = iframe.contentWindow || window.frames['iframe'];
+const idoc = iwindow.document;
+
+console.log('window', iwindow);// 获取iframe的window对象
+console.log('document', idoc);  // 获取iframe的document
+console.log('html', idoc.documentElement);// 获取iframe的html
+console.log('head', idoc.head);  // 获取head
+console.log('body', idoc.body);  // 获取body
+/*
+ * 在iframe中获取父级内容
+ * window.parent 获取上一级的window对象，如果还是iframe则是该iframe的window对象
+ * window.top 获取最顶级容器的window对象，即，就是你打开页面的文档
+ * window.self 返回自身window的引用。可以理解 window===window.self(脑残)
+ */
+````
+
+## promise对象
+
+````javascript
+
+// 异步操作1
+ function runAsync() {
+    var p = new Promise(function(resolve, reject) {
+        //做一些异步操作
+        setTimeout(function() {
+            console.log('异步操作执行完成');
+            resolve('执行成功数据111111');
+        }, 2000);
+    });
+    return p;
+}
+
+// 异步操作2
+function runAsync2() {
+    var p = new Promise(function(resolve, reject) {
+        //做一些异步操作
+        setTimeout(function() {
+            console.log('异步任务2执行完成');
+            resolve('执行成功数据222');
+        }, 2000);
+    });
+    return p;
+}
+
+runAsync().then(function(data) {
+    console.log(data);
+    return runAsync2();
+}).then(function(data) {
+    console.log(data);
+    return '执行成功数据3333';
+}).then(function(data) {
+    console.log(data);
+});
+````

@@ -19,4 +19,4 @@
 * iframe跳转
 * webpack打包
 * vue render函数
-* **promise** 用法
+* promise 用法

@@ -33,8 +33,10 @@
             ]),
             commitForm() {
                 Utils.setStore('isLogin', {p: true});
-                Utils.jumpTo('/')
+                Utils.jumpTo('/');
             }
+        },
+        mounted() {
         }
     };
 </script>

@@ -30,7 +30,7 @@ module.exports = {
                 test: /\.(js|vue)$/,
                 loader: 'eslint-loader',
                 enforce: 'pre',
-                include: [resolve('src'), resolve('test')],
+                include: [resolve('src'), resolve('static')],
                 options: {
                     formatter: require('eslint-friendly-formatter'), // 将eslint的错误信息显示在终端上
                     emitWarning: true
@@ -38,11 +38,13 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
+                include: [resolve('src'), resolve('static')],
                 loader: 'vue-loader',
                 options: vueLoaderConfig
             },
             {
                 test: /\.css$/,
+                include: [resolve('src'), resolve('static'), resolve('./node_modules/iview/dist/styles/iview.css')],
                 use: ExtractTextPlugin.extract({
                     use: ['css-loader'],
                     fallback: 'vue-style-loader'
@@ -50,6 +52,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
+                include: [resolve('src'), resolve('static')],
                 use: ExtractTextPlugin.extract({
                     use: ['css-loader', 'less-loader'],
                     fallback: 'vue-style-loader'
@@ -58,7 +61,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+                include: [resolve('src'), resolve('static'), resolve('node_modules/webpack-dev-server/client')]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -66,14 +69,6 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name: 'assets/images/[name].[ext]'
-                }
-            },
-            {
-                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-                loader: 'file-loader',
-                options: {
-                    limit: 10000,
-                    name: 'assets/medias/[name].[ext]'
                 }
             },
             {
@@ -87,7 +82,7 @@ module.exports = {
         ]
     },
     plugins: [
-        // extract css into its own file
+        // 提取css文件
         new ExtractTextPlugin({
             filename: 'assets/css/base.css',
             allChunks: true
