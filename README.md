@@ -12,6 +12,12 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # antd-vue-project
+## url
+### ant-design-vue https://www.antdv.com/components/icon-cn/
+### vue https://cn.vuejs.org/v2/guide/components-props.html
+### vue-router https://router.vuejs.org/zh/guide/#html
+### vue-cli https://cli.vuejs.org/zh/guide/
+### vuex https://vuex.vuejs.org/zh/
 
 ## project intro
 ```
